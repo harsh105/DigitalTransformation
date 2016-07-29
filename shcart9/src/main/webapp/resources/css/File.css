@@ -1,0 +1,56 @@
+.tg {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-color: #ccc;
+}
+
+.tg td {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+	border-color: #ccc;
+	color: #333;
+	background-color: #fff;
+}
+
+.tg th {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+	border-color: #ccc;
+	color: #333;
+	background-color: #f0f0f0;
+}
+
+.tg .tg-4eph {
+	background-color: #f9f9f9
+}
+.navbar {
+	margin-bottom: 50px;
+	border-radius: 0;
+}
+
+
+.jumbotron {
+	margin-bottom: 0;
+}
+
+
+.footer {
+	background-color: #f2f2f2;
+	padding: 25px;
+}
+
+.bg-1 {
+	background-color: #1abc9c; /* Green */
+	color: #B11F3E;
+}

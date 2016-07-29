@@ -1,0 +1,42 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/security
+    http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+ 
+    <http auto-config="true"  use-expressions="true">
+    	<intercept-url pattern="/" access="permitAll" />
+        <intercept-url pattern="/login" access="permitAll" />
+        <intercept-url pattern="/logout" access="permitAll" />
+        <intercept-url pattern="/AccessDenied" access="permitAll" />
+        <intercept-url pattern="/Contact" access="permitAll"/>
+        <intercept-url pattern="/adminHome" access="hasRole('ROLE_ADMIN')"/>	
+        <intercept-url pattern="/CategoryUser" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/userpage"  access="hasRole('ROLE_ADMIN')"/> 
+        <intercept-url pattern="/UserPage"  access="hasRole('ROLE_USER')"/>
+        
+		<form-login login-page="/login"  default-target-url="/"  authentication-failure-url="/AccessDenied" />
+		<form-login login-page="/login" default-target-url="/"  authentication-failure-url="/AccessDenied" />
+
+		<logout logout-success-url="/logout" />
+    </http>
+ 
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider>
+          <!--  <jdbc-user-service data-source-ref="dataSource"
+            users-by-username-query="select name,password from User_Details  where name=?"
+            authorities-by-username-query="select c.name, r.role_name from User_Details c, user_role r where c.name=? and c.id = r.user_id"
+            />
+           -->
+  			 <jdbc-user-service data-source-ref="dataSource"
+            users-by-username-query="select cname,password,enabled from customermodel where cname=?"
+            authorities-by-username-query="select c.cname, r.role_name from customermodel c, user_role r where c.cname=? and c.cid = r.user_id"
+            /> 
+      
+<!--        <user name="rahul" password="123" authorities="ROLE_USER"/> -->
+         </authentication-provider>
+    </authentication-manager>
+ 
+</beans:beans>
